@@ -23,28 +23,28 @@ const DATA_CACHE_NAME = 'data-cache-v1';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
-  '/ExCalcAlpha/',
-  '/ExCalcAlpha/index.html',
-  '/ExCalcAlpha/scripts/app.js',
-  '/ExCalcAlpha/scripts/install.js',
-  '/ExCalcAlpha/scripts/luxon-1.11.4.js',
-  '/ExCalcAlpha/styles/inline.css',
-  '/ExCalcAlpha/images/add.svg',
-  '/ExCalcAlpha/images/clear-day.svg',
-  '/ExCalcAlpha/images/clear-night.svg',
-  '/ExCalcAlpha/images/cloudy.svg',
-  '/ExCalcAlpha/images/fog.svg',
-  '/ExCalcAlpha/images/hail.svg',
-  '/ExCalcAlpha/images/install.svg',
-  '/ExCalcAlpha/images/partly-cloudy-day.svg',
-  '/ExCalcAlpha/images/partly-cloudy-night.svg',
-  '/ExCalcAlpha/images/rain.svg',
-  '/ExCalcAlpha/images/refresh.svg',
-  '/ExCalcAlpha/images/sleet.svg',
-  '/ExCalcAlpha/images/snow.svg',
-  '/ExCalcAlpha/images/thunderstorm.svg',
-  '/ExCalcAlpha/images/tornado.svg',
-  '/ExCalcAlpha/images/wind.svg',
+  '/',
+  '/index.html',
+  '/scripts/app.js',
+  '/scripts/install.js',
+  '/scripts/luxon-1.11.4.js',
+  '/styles/inline.css',
+  '/images/add.svg',
+  '/images/clear-day.svg',
+  '/images/clear-night.svg',
+  '/images/cloudy.svg',
+  '/images/fog.svg',
+  '/images/hail.svg',
+  '/images/install.svg',
+  '/images/partly-cloudy-day.svg',
+  '/images/partly-cloudy-night.svg',
+  '/images/rain.svg',
+  '/images/refresh.svg',
+  '/images/sleet.svg',
+  '/images/snow.svg',
+  '/images/thunderstorm.svg',
+  '/images/tornado.svg',
+  '/images/wind.svg',
 ];
 
 self.addEventListener('install', (evt) => {
@@ -80,7 +80,7 @@ evt.waitUntil(
 self.addEventListener('fetch', (evt) => {
   console.log('[ServiceWorker] Fetch', evt.request.url);
 // CODELAB: Add fetch event handler here.
-if (evt.request.url.includes('/ExCalcAlpha/forecast/')) {
+if (evt.request.url.includes('/forecast/')) {
   console.log('[Service Worker] Fetch (data)', evt.request.url);
   evt.respondWith(
       caches.open(DATA_CACHE_NAME).then((cache) => {

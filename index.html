@@ -24,17 +24,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather PWA</title>
   <meta name="codelab" content="your-first-pwa-v3">
-  <link rel="stylesheet" type="text/css" href="/ExCalcAlpha/styles/inline.css">
-  <link rel="icon" href="/ExCalcAlpha/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="/styles/inline.css">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 
   <!-- CODELAB: Add link rel manifest -->
-  <link rel="manifest" href="/ExCalcAlpha/manifest.json">
+  <link rel="manifest" href="/manifest.json">
   
   <!-- CODELAB: Add iOS meta tags and icons -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Weather PWA">
-<link rel="apple-touch-icon" href="/ExCalcAlpha/images/icons/icon-152x152.png">  
+<link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">  
 
   <!-- CODELAB: Add description here -->
   <meta name="description" content="A sample weather app">
@@ -210,14 +210,14 @@
     </div>
   </div>
 
-  <script src="/ExCalcAlpha/scripts/luxon-1.11.4.js"></script>
-  <script src="/ExCalcAlpha/scripts/app.js"></script>
+  <script src="/scripts/luxon-1.11.4.js"></script>
+  <script src="/scripts/app.js"></script>
   <!-- CODELAB: Add the install script here -->
   <script>
     // CODELAB: Register service worker.
 	if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/ExCalcAlpha/service-worker.js')
+    navigator.serviceWorker.register('/service-worker.js')
         .then((reg) => {
           console.log('Service worker registered.', reg);
         });
