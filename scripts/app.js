@@ -146,7 +146,7 @@ if (lastUpdated >= data.currently.time) {
  * @return {Object} The weather forecast, if the request fails, return null.
  */
 function getForecastFromNetwork(coords) {
-  return fetch(`/forecast/${coords}`)
+  return fetch(`/ExCalcAlpha/forecast/${coords}`)
       .then((response) => {
         return response.json();
       })
