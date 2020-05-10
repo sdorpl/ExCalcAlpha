@@ -271,7 +271,7 @@ function loadLocationList() {
 function init() {
   // Get the location list, and update the UI.
   weatherApp.selectedLocations = loadLocationList();
-  updateData();
+  /*updateData();*/
 
   // Set up the event handlers for all of the buttons.
   document.getElementById('butRefresh').addEventListener('click', updateData);
