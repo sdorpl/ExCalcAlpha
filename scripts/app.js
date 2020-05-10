@@ -145,6 +145,8 @@ if (lastUpdated >= data.currently.time) {
  * @param {string} coords Location object to.
  * @return {Object} The weather forecast, if the request fails, return null.
  */
+ 
+/* do skasowania 
 function getForecastFromNetwork(coords) {
   return fetch(`/forecast/${coords}`)
       .then((response) => {
@@ -154,6 +156,8 @@ function getForecastFromNetwork(coords) {
         return null;
       });
 }
+
+*/
 
 /**
  * Get's the cached forecast data from the caches object.
