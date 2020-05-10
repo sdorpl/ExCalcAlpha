@@ -212,6 +212,8 @@ function getForecastCard(location) {
  * Gets the latest weather forecast data and updates each card with the
  * new data.
  */
+ 
+ /* do skasowania
 function updateData() {
   Object.keys(weatherApp.selectedLocations).forEach((key) => {
     const location = weatherApp.selectedLocations[key];
@@ -228,7 +230,7 @@ getForecastFromCache(location.geo)
           renderForecast(card, forecast);
         });
   });
-}
+} */
 
 /**
  * Saves the list of locations.
