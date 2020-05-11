@@ -18,7 +18,7 @@
 'use strict';
 
 // CODELAB: Update cache names any time any of the cached files change.
-const CACHE_NAME = 'excalc-alpha-0.01';
+const CACHE_NAME = 'excalc-alpha-0.02';
 const DATA_CACHE_NAME = 'data-cache-v1';
 
 // CODELAB: Add list of files to cache here.
@@ -44,7 +44,7 @@ const FILES_TO_CACHE = [
   '/images/snow.svg',
   '/images/thunderstorm.svg',
   '/images/tornado.svg',
-  '/images/wind.svg',
+  '/images/favicon.ico',
 ];
 
 self.addEventListener('install', (evt) => {
