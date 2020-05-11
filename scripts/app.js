@@ -370,12 +370,12 @@ function init() {
   /*updateData();*/
 
   // Set up the event handlers for all of the buttons.
-  /*document.getElementById('butRefresh').addEventListener('click', updateData);*/
+  /*document.getElementById('butRefresh').addEventListener('click', updateData);
   document.getElementById('butAdd').addEventListener('click', toggleAddDialog);
   document.getElementById('butDialogCancel')
       .addEventListener('click', toggleAddDialog);
   document.getElementById('butDialogAdd')
-      .addEventListener('click', addLocation);
+      .addEventListener('click', addLocation);*/
 }
 
 init();
