@@ -18,7 +18,7 @@
 'use strict';
 
 // CODELAB: Update cache names any time any of the cached files change.
-const CACHE_NAME = 'excalc-alpha-0.04';
+const CACHE_NAME = 'excalc-alpha-0.05';
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
@@ -26,7 +26,6 @@ const FILES_TO_CACHE = [
   '/index.html',
   '/scripts/app.js',
   '/scripts/install.js',
-  '/scripts/luxon-1.11.4.js',
   '/styles/inline.css',
   '/images/add.svg',
   '/images/install.svg',
