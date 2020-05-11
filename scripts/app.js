@@ -72,7 +72,7 @@ function licz(wymiar, sztuk, speed, poile) {
   if (kartonsIsArray == 1) {
     var wynikKartons = kartonsArray[0] + '';
   } else {
-    var sztuki = Math.decimal(parseFloat('0.' + kartonsArray[1]) * poile, 0);
+    var sztuki = Math.round(parseFloat('0.' + kartonsArray[1]) * poile, 0);
     var wynikKartons = kartonsArray[0] + ' po ' + poile + ' sztuk i reszta ' + sztuki.toString() + ' sztuk';
   }
 
