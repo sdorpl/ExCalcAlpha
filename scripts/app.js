@@ -24,7 +24,18 @@ const weatherApp = {
 
 /* Obliczenia */
 
-licz = function(wymiar, sztuk, speed, poile) {
+var indexCountForm = document.forms.indexCountForm;
+
+indexCountForm.addEventListener('change', function() {
+  var inputWymiar = indexCountForm.inputWymiar.value;
+  var inputSztuk = indexCountForm.inputSztuk.value;
+  var inputSpeed = indexCountForm.inputSpeed.value;
+  var inputPoIle = indexCountForm.inputPoIle.value;
+  console.log (inputWymiar);
+  licz(inputWymiar, inputSztuk, inputSpeed, inputPoIle);
+});
+
+function licz(wymiar, sztuk, speed, poile) {
   //Zmienne komunikatów
   var infoBox = document.getElementById('info');
   var wynikBox = document.getElementById('wynik_row');
@@ -105,16 +116,6 @@ licz = function(wymiar, sztuk, speed, poile) {
 
 };
 
-var indexCountForm = document.forms.indexCountForm;
-
-indexCountForm.addEventListener('change', function() {
-  var inputWymiar = indexCountForm.inputWymiar.value;
-  var inputSztuk = indexCountForm.inputSztuk.value;
-  var inputSpeed = indexCountForm.inputSpeed.value;
-  var inputPoIle = indexCountForm.inputPoIle.value;
-  console.log (inputWymiar);
-  licz(inputWymiar, inputSztuk, inputSpeed, inputPoIle);
-});
 
 /**
  * Toggles the visibility of the add location dialog box.
