@@ -57,7 +57,8 @@ function licz(wymiar, sztuk, speed, poile) {
   if (czasIsArray == 1) {
     var wynikCzas = czasArray[0] + ' Godzin 0 Minut';
   } else {
-    var minuty = Math.decimal(czasArray[1].substr(0, 2) / 100 * 60, 0);
+
+    var minuty = Math.round(czasArray[1].substr(0, 2) / 100 * 60, 0);
     var wynikCzas = czasArray[0] + ' Godzin ' + minuty.toString() + ' Minut';
   }
 
