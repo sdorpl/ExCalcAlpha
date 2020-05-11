@@ -22,6 +22,100 @@ const weatherApp = {
   addDialogContainer: document.getElementById('addDialogContainer'),
 };
 
+/* Obliczenia */
+
+licz = function(wymiar, sztuk, speed, poile) {
+  //Zmienne komunikatów
+  var infoBox = document.getElementById('info');
+  var wynikBox = document.getElementById('wynik_row');
+  var wynikValue = document.getElementById('wynik');
+  var kartonsBox = document.getElementById('kartony_row');
+  var kartonsValue = document.getElementById('kartony');
+
+  var wynikCzas = '';
+  var wynikKartons = '';
+
+
+  //Obliczam czas
+  var czas = (wymiar / 1000) * (sztuk / speed) / 60;
+  //Konwertuje czas do tablicy
+  var czasArray = czas.toString().split('.');
+  //Sprawdzam ilosc rekordow
+  var czasIsArray = czasArray.length;
+  //Wykonuje sprawdzenie czy tablica
+  if (czasIsArray == 1) {
+    var wynikCzas = czasArray[0] + ' Godzin 0 Minut';
+  } else {
+    var minuty = Math.decimal(czasArray[1].substr(0, 2) / 100 * 60, 0);
+    var wynikCzas = czasArray[0] + ' Godzin ' + minuty.toString() + ' Minut';
+  }
+
+  //Obliczam kartony
+  var kartons = sztuk / poile;
+  //Konwertuje czas do tablicy
+  var kartonsArray = kartons.toString().split('.');
+  //Sprawdzam ilosc rekordow
+  var kartonsIsArray = kartonsArray.length;
+  //Wykonuje sprawdzenie czy tablica
+  if (kartonsIsArray == 1) {
+    var wynikKartons = kartonsArray[0] + '';
+  } else {
+    var sztuki = Math.decimal(parseFloat('0.' + kartonsArray[1]) * poile, 0);
+    var wynikKartons = kartonsArray[0] + ' po ' + poile + ' sztuk i reszta ' + sztuki.toString() + ' sztuk';
+  }
+
+  //Jezeli wymiar i speed null
+  if (!wymiar && !speed && !sztuk) {
+    infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza!";
+  } else {
+    infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+    if (isNaN(czasArray[0]) || isNaN(kartons)) {
+      wynikBox.setAttribute('hidden', true);
+      infoBox.removeAttribute('hidden');
+      infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+    } else {
+      infoBox.removeAttribute('hidden');
+      infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+
+      if (wynikCzas != 0 && wynikCzas != Infinity) {
+        infoBox.setAttribute('hidden', true);
+        wynikBox.removeAttribute('hidden');
+        wynikValue.innerHTML = "Szacowany czas realizacji: <strong>" + wynikCzas + "</strong>";
+      } else {
+        wynikBox.setAttribute('hidden', true);
+        infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+      }
+
+      if (wynikKartons != 0 && wynikKartons != Infinity) {
+        infoBox.setAttribute('hidden', true);
+        kartonsBox.removeAttribute('hidden');
+        kartonsValue.innerHTML = "Ilość kartonów do zrobienia: : <strong>" + wynikKartons + "</strong>";
+      } else {
+        kartonsBox.setAttribute('hidden', true);
+        infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+      }
+
+    }
+  }
+  var ret = {
+    "kartony": wynikKartons,
+    "czas": wynikCzas,
+  };
+  return ret;
+
+};
+
+var indexCountForm = document.forms.indexCountForm;
+
+indexCountForm.addEventListener('change', function() {
+  var inputWymiar = indexCountForm.inputWymiar.value;
+  var inputSztuk = indexCountForm.inputSztuk.value;
+  var inputSpeed = indexCountForm.inputSpeed.value;
+  var inputPoIle = indexCountForm.inputPoIle.value;
+  console.log (inputWymiar);
+  licz(inputWymiar, inputSztuk, inputSpeed, inputPoIle);
+});
+
 /**
  * Toggles the visibility of the add location dialog box.
  */
@@ -145,8 +239,8 @@ if (lastUpdated >= data.currently.time) {
  * @param {string} coords Location object to.
  * @return {Object} The weather forecast, if the request fails, return null.
  */
- 
-/* do skasowania 
+
+/* do skasowania
 function getForecastFromNetwork(coords) {
   return fetch(`/forecast/${coords}`)
       .then((response) => {
@@ -212,7 +306,7 @@ function getForecastCard(location) {
  * Gets the latest weather forecast data and updates each card with the
  * new data.
  */
- 
+
  /* do skasowania
 function updateData() {
   Object.keys(weatherApp.selectedLocations).forEach((key) => {
