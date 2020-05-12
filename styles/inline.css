@@ -232,9 +232,9 @@ body {
 
 input {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 15px;
   height: 32px;
-  padding: 20px;
+  padding: 18px;
   border: solid 1px #CCC;
   box-shadow: 10px 10px 29px 16px rgba(0,0,0,0.08);
   background: #D8D8D8;
