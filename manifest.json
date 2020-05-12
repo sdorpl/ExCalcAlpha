@@ -23,7 +23,7 @@
     }
   ],
 
-  "start_url": "/index.html?utm source=pwaapp",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#7A221C",
   "theme_color": "#790005"
