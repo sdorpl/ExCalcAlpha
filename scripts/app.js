@@ -24,14 +24,15 @@ const weatherApp = {
 };
 
 /* Obliczenia */
-
+/*
 var indexCountForm = document.forms.indexCountForm;
+*/
 
-indexCountForm.addEventListener('change', function() {
-  var inputWymiar = indexCountForm.inputWymiar.value;
-  var inputSztuk = indexCountForm.inputSztuk.value;
-  var inputSpeed = indexCountForm.inputSpeed.value;
-  var inputPoIle = indexCountForm.inputPoIle.value;
+weatherApp.mainForm.addEventListener('change', function() {
+  var inputWymiar = weatherApp.mainForm.inputWymiar.value;
+  var inputSztuk = weatherApp.mainForm.inputSztuk.value;
+  var inputSpeed = weatherApp.mainForm.inputSpeed.value;
+  var inputPoIle = weatherApp.mainForm.inputPoIle.value;
   console.log (inputWymiar);
   licz(inputWymiar, inputSztuk, inputSpeed, inputPoIle);
 });
