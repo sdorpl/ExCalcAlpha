@@ -169,6 +169,10 @@ body {
  * Weather forecast card
  */
 
+ .weather-info {
+   padding: 16px;
+ }
+
 .weather-card {
   background: #fff;
   border-radius: 2px;

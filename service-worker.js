@@ -19,7 +19,7 @@
 
 // CODELAB: Update cache names any time any of the cached files change.
 
-const CACHE_NAME = 'excalc-alpha-0.39';
+const CACHE_NAME = 'excalc-alpha-0.40';
 
 
 // CODELAB: Add list of files to cache here.
