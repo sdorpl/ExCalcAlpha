@@ -21,6 +21,8 @@ const weatherApp = {
   selectedLocations: {},
   addDialogContainer: document.getElementById('addDialogContainer'),
   mainForm: document.getElementById('indexCountForm'),
+  infoBox: document.getElementById('info'),
+  wynikBox: document.getElementById('wynik_row'),
 };
 
 /* Obliczenia */
@@ -39,8 +41,6 @@ weatherApp.mainForm.addEventListener('change', function() {
 
 function licz(wymiar, sztuk, speed, poile) {
   //Zmienne komunikatów
-  var infoBox = document.getElementById('info');
-  var wynikBox = document.getElementById('wynik_row');
   var wynikValue = document.getElementById('wynik');
   var kartonsBox = document.getElementById('kartony_row');
   var kartonsValue = document.getElementById('kartony');
@@ -80,33 +80,33 @@ function licz(wymiar, sztuk, speed, poile) {
 
   //Jezeli wymiar i speed null
   if (!wymiar && !speed && !sztuk) {
-    infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza!";
+    weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza!";
   } else {
-    infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+    weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
     if (isNaN(czasArray[0]) || isNaN(kartons)) {
-      wynikBox.setAttribute('hidden', true);
-      infoBox.removeAttribute('hidden');
-      infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+      weatherApp.wynikBox.setAttribute('hidden', true);
+      weatherApp.infoBox.removeAttribute('hidden');
+      weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
     } else {
-      infoBox.removeAttribute('hidden');
-      infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+      weatherApp.infoBox.removeAttribute('hidden');
+      weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
 
       if (wynikCzas != 0 && wynikCzas != Infinity) {
-        infoBox.setAttribute('hidden', true);
-        wynikBox.removeAttribute('hidden');
+        weatherApp.infoBox.setAttribute('hidden', true);
+        weatherApp.wynikBox.removeAttribute('hidden');
         wynikValue.innerHTML = "Szacowany czas realizacji: <strong>" + wynikCzas + "</strong>";
       } else {
-        wynikBox.setAttribute('hidden', true);
-        infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+        weatherApp.wynikBox.setAttribute('hidden', true);
+        weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
       }
 
       if (wynikKartons != 0 && wynikKartons != Infinity) {
-        infoBox.setAttribute('hidden', true);
+        weatherApp.infoBox.setAttribute('hidden', true);
         kartonsBox.removeAttribute('hidden');
         kartonsValue.innerHTML = "Ilość kartonów do zrobienia: : <strong>" + wynikKartons + "</strong>";
       } else {
         kartonsBox.setAttribute('hidden', true);
-        infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+        weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
       }
 
     }
@@ -129,6 +129,7 @@ function toggleAddDialog() {
 
 function cleanMainForm() {
   weatherApp.mainForm.reset();
+  weatherApp.infoBox.removeAttribute('hidden');
 }
 
 /**
