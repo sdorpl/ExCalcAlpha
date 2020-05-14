@@ -131,6 +131,7 @@ body {
 .main .btns {
   background-color: #B0122D;
   border-radius: 24px;
+  border: solid 1px #dfe1e5;
   box-shadow: 2px 2px 10px 5px rgba(0,0,0,0.08);
   color: #fff;
   bottom: 1rem;
