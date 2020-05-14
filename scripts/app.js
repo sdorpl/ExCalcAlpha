@@ -20,6 +20,7 @@
 const weatherApp = {
   selectedLocations: {},
   addDialogContainer: document.getElementById('addDialogContainer'),
+  mainForm: document.getElementById('indexCountForm'),
 };
 
 /* Obliczenia */
@@ -123,6 +124,10 @@ function licz(wymiar, sztuk, speed, poile) {
  */
 function toggleAddDialog() {
   weatherApp.addDialogContainer.classList.toggle('visible');
+}
+
+function cleanMainForm() {
+  weatherApp.mainForm.reset();
 }
 
 /**
@@ -370,12 +375,7 @@ function init() {
   /*updateData();*/
 
   // Set up the event handlers for all of the buttons.
-  /*document.getElementById('butRefresh').addEventListener('click', updateData);
-  document.getElementById('butAdd').addEventListener('click', toggleAddDialog);
-  document.getElementById('butDialogCancel')
-      .addEventListener('click', toggleAddDialog);
-  document.getElementById('butDialogAdd')
-      .addEventListener('click', addLocation);*/
+  document.getElementById('butClean').addEventListener('click', cleanMainForm);
 }
 
 init();
