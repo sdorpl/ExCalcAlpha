@@ -24,7 +24,7 @@ workbox.googleAnalytics.initialize();
 
 // CODELAB: Update cache names any time any of the cached files change.
 
-const CACHE_NAME = 'excalc-alpha-0.57';
+const CACHE_NAME = 'excalc-alpha-0.58';
 
 
 // CODELAB: Add list of files to cache here.
@@ -72,7 +72,7 @@ evt.waitUntil(
 self.addEventListener('fetch', (evt) => {
   console.log('[ServiceWorker] Fetch', evt.request.url);
 // CODELAB: Add fetch event handler here.
-/*
+
 if (evt.request.url.includes('/forecast/')) {
   console.log('[Service Worker] Fetch (data)', evt.request.url);
   evt.respondWith(
@@ -91,7 +91,7 @@ if (evt.request.url.includes('/forecast/')) {
       }));
   return;
 }
-*/
+
 evt.respondWith(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.match(evt.request)
