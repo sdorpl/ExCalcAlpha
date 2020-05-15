@@ -28,17 +28,14 @@ const weatherApp = {
 };
 
 /* Obliczenia */
-/*
-var indexCountForm = document.forms.indexCountForm;
-*/
 
 weatherApp.mainForm.addEventListener('change', function() {
-  weatherApp.btnContainer.removeAttribute('hidden');
+  /*weatherApp.btnContainer.removeAttribute('hidden');*/
+  weatherApp.btnContainer.classlist.toggle('show');
   var inputWymiar = weatherApp.mainForm.inputWymiar.value;
   var inputSztuk = weatherApp.mainForm.inputSztuk.value;
   var inputSpeed = weatherApp.mainForm.inputSpeed.value;
   var inputPoIle = weatherApp.mainForm.inputPoIle.value;
-  console.log (inputWymiar);
   licz(inputWymiar, inputSztuk, inputSpeed, inputPoIle);
 });
 
@@ -131,7 +128,8 @@ function toggleAddDialog() {
 
 function cleanMainForm() {
   weatherApp.mainForm.reset();
-  weatherApp.btnContainer.setAttribute('hidden', true);
+  /*weatherApp.btnContainer.removeAttribute('hidden');*/
+  weatherApp.btnContainer.classlist.toggle('show');
   weatherApp.wynikBox.setAttribute('hidden', true);
   weatherApp.kartonsBox.setAttribute('hidden', true);
   weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";

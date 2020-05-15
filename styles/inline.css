@@ -126,6 +126,12 @@ body {
   position: fixed;
   right: 1rem;
   z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.main .btnContainer .show {
+  opacity: 1;
 }
 
 .main .btns {
