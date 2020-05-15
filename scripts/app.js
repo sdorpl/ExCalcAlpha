@@ -77,8 +77,10 @@ function licz(wymiar, sztuk, speed, poile) {
 
   //Jezeli wymiar i speed null
   if (!wymiar && !speed && !sztuk) {
+    console.log("CHOWAM BATONIK BO PUSTO W FORMULARZU I CHUJ");
     weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
   } else {
+    console.log("POKAZUJE BATONIK KURWA JEGO MAĆ");
     weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
     if (isNaN(czasArray[0]) || isNaN(kartons)) {
       weatherApp.wynikBox.setAttribute('hidden', true);
