@@ -78,6 +78,7 @@ function licz(wymiar, sztuk, speed, poile) {
   //Jezeli wymiar i speed null
   if (!wymiar && !speed && !sztuk) {
     console.log("CHOWAM BATONIK BO PUSTO W FORMULARZU I CHUJ");
+    weatherApp.btnContainer.classList.remove('hidden');
     weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
   } else {
     console.log("POKAZUJE BATONIK KURWA JEGO MAĆ");

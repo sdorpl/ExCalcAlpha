@@ -126,6 +126,11 @@ body {
   position: fixed;
   right: 1rem;
   z-index: 1000;
+  opacity: 1;
+}
+
+#btnContainer.hidden {
+  opacity: 0;
 }
 
 .main .btns {
