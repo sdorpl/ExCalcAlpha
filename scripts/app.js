@@ -20,6 +20,7 @@
 const weatherApp = {
   selectedLocations: {},
   addDialogContainer: document.getElementById('addDialogContainer'),
+  btnContainer: document.getElementById('btnContainer'),
   mainForm: document.getElementById('indexCountForm'),
   infoBox: document.getElementById('info'),
   wynikBox: document.getElementById('wynik_row'),
@@ -32,6 +33,7 @@ var indexCountForm = document.forms.indexCountForm;
 */
 
 weatherApp.mainForm.addEventListener('change', function() {
+  weatherApp.btnContainer.removeAttribute('hidden');
   var inputWymiar = weatherApp.mainForm.inputWymiar.value;
   var inputSztuk = weatherApp.mainForm.inputSztuk.value;
   var inputSpeed = weatherApp.mainForm.inputSpeed.value;
@@ -129,6 +131,7 @@ function toggleAddDialog() {
 
 function cleanMainForm() {
   weatherApp.mainForm.reset();
+  weatherApp.btnContainer.setAttribute('hidden', true);
   weatherApp.wynikBox.setAttribute('hidden', true);
   weatherApp.kartonsBox.setAttribute('hidden', true);
   weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
