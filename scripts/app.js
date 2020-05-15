@@ -77,7 +77,6 @@ function licz(wymiar, sztuk, speed, poile) {
 
   //Jezeli wymiar i speed null
   if (!wymiar && !speed && !sztuk) {
-    toggleBtnContainer();
     weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
   } else {
     weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
@@ -89,7 +88,7 @@ function licz(wymiar, sztuk, speed, poile) {
       weatherApp.infoBox.removeAttribute('hidden');
       weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
 
-      if (wynikCzas != 0 || wynikCzas != Infinity) {
+      if (wynikCzas != 0 && wynikCzas != Infinity) {
         weatherApp.infoBox.setAttribute('hidden', true);
         weatherApp.wynikBox.removeAttribute('hidden');
         wynikValue.innerHTML = "Szacowany czas realizacji: <strong>" + wynikCzas + "</strong>";
@@ -98,7 +97,7 @@ function licz(wymiar, sztuk, speed, poile) {
         weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
       }
 
-      if (wynikKartons != 0 || wynikKartons != Infinity) {
+      if (wynikKartons != 0 && wynikKartons != Infinity) {
         weatherApp.infoBox.setAttribute('hidden', true);
         weatherApp.kartonsBox.removeAttribute('hidden');
         kartonsValue.innerHTML = "Ilość kartonów do zrobienia: : <strong>" + wynikKartons + "</strong>";
@@ -121,14 +120,9 @@ function licz(wymiar, sztuk, speed, poile) {
 /**
  * Toggles the visibility of the add location dialog box.
  */
-function toggleBtnContainer() {
-  weatherApp.btnContainer.classList.toggle('visible');
-}
 
 function cleanMainForm() {
   weatherApp.mainForm.reset();
-  /*weatherApp.btnContainer.removeAttribute('hidden');*/
-  /*toggleBtnContainer();*/
   weatherApp.wynikBox.setAttribute('hidden', true);
   weatherApp.kartonsBox.setAttribute('hidden', true);
   weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";

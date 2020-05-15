@@ -130,10 +130,6 @@ body {
   transition: opacity 0.5s linear;
 }
 
-#btnContainer.visible {
-  opacity: 1;
-}
-
 .main .btns {
   background-color: #B0122D;
   border-radius: 24px;
