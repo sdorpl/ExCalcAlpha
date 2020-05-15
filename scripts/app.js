@@ -89,7 +89,7 @@ function licz(wymiar, sztuk, speed, poile) {
       weatherApp.infoBox.removeAttribute('hidden');
       weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
 
-      if (wynikCzas != 0 && wynikCzas != Infinity) {
+      if (wynikCzas != 0 || wynikCzas != Infinity) {
         weatherApp.infoBox.setAttribute('hidden', true);
         weatherApp.wynikBox.removeAttribute('hidden');
         wynikValue.innerHTML = "Szacowany czas realizacji: <strong>" + wynikCzas + "</strong>";
@@ -98,7 +98,7 @@ function licz(wymiar, sztuk, speed, poile) {
         weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
       }
 
-      if (wynikKartons != 0 && wynikKartons != Infinity) {
+      if (wynikKartons != 0 || wynikKartons != Infinity) {
         weatherApp.infoBox.setAttribute('hidden', true);
         weatherApp.kartonsBox.removeAttribute('hidden');
         kartonsValue.innerHTML = "Ilość kartonów do zrobienia: : <strong>" + wynikKartons + "</strong>";
