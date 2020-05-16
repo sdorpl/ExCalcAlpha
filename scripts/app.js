@@ -127,6 +127,7 @@ function licz(wymiar, sztuk, speed, poile) {
 
 function cleanMainForm() {
   weatherApp.mainForm.reset();
+  weatherApp.btnContainer.classList.add('hidden');
   weatherApp.wynikBox.setAttribute('hidden', true);
   weatherApp.kartonsBox.setAttribute('hidden', true);
   weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
