@@ -102,10 +102,12 @@ function licz(wymiar, sztuk, speed, poile) {
       }
 
       if (wynikKartons != 0 && wynikKartons != Infinity) {
+        weatherApp.btnContainer.classList.remove('hidden');
         weatherApp.infoBox.setAttribute('hidden', true);
         weatherApp.kartonsBox.removeAttribute('hidden');
         kartonsValue.innerHTML = "Ilość kartonów do zrobienia: : <strong>" + wynikKartons + "</strong>";
       } else {
+        weatherApp.btnContainer.classList.add('hidden');
         weatherApp.kartonsBox.setAttribute('hidden', true);
         weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
       }
