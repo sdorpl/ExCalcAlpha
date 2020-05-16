@@ -1,6 +1,6 @@
 {
-  "name": "ExCalcAlpha",
-  "short_name": "ExCalcAlpha",
+  "name": "Extruder Calc Alpha",
+  "short_name": "ExCalc Alpha",
 
   "icons": [
     {
@@ -23,7 +23,7 @@
     }
   ],
 
-  "start_url": "/index.html",
+  "start_url": "/index.html?utm_source=pwa",
   "display": "standalone",
   "background_color": "#7A221C",
   "theme_color": "#790005"

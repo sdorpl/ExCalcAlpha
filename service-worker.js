@@ -24,7 +24,7 @@ workbox.googleAnalytics.initialize();
 
 // CODELAB: Update cache names any time any of the cached files change.
 
-const CACHE_NAME = 'excalc-alpha-0.59';
+const CACHE_NAME = 'excalc-alpha-0.60';
 
 
 // CODELAB: Add list of files to cache here.
@@ -106,6 +106,9 @@ if (evt.request.mode !== 'navigate') {
   // Not a page navigation, bail.
   return;
 }
+
+/*
+
 evt.respondWith(
     fetch(evt.request)
         .catch(() => {
@@ -115,5 +118,7 @@ evt.respondWith(
               });
         })
 );
+
+*/
 
 });
