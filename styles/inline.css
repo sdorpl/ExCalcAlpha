@@ -279,6 +279,19 @@ input {
 }
 
 /**
+  * Dark theme
+  */
+
+  body.dark {
+    color: #f0f0f0;
+    background: #212121;
+  }
+
+  .header.dark {
+    background: #303030;
+  }
+
+/**
  * Media query to adjust size of content for small screens
  */
 

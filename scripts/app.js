@@ -372,9 +372,24 @@ function loadLocationList() {
 }
 
 /**
+  * Dark theme
+  */
+
+  function lightTheme() {
+    console.log("Jasna skórka");
+  }
+
+  function darkTheme() {
+    console.log("Ciemna skórka");
+    document.body.classList.add("dark");
+    document.header.classList.add("dark");
+  }
+
+/**
  * Initialize the app, gets the list of locations from local storage, then
  * renders the initial data.
  */
+
 function init() {
   // Get the location list, and update the UI.
   weatherApp.selectedLocations = loadLocationList();
