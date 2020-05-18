@@ -294,6 +294,13 @@ input {
   .weather-card.dark {
     background: #000;
   }
+
+  .form-control.dark {
+    color: #f0f0f0;
+    background-color: #212121;
+    border-color: #383838;
+  }
+
 /**
  * Media query to adjust size of content for small screens
  */

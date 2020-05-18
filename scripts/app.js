@@ -384,6 +384,17 @@ function loadLocationList() {
     document.body.classList.add("dark");
     document.querySelector('.header').classList.add("dark");
     document.querySelector('.weather-card').classList.add("dark");
+
+    //Zmienne
+    var formClass = document.getElementsByClassName('form-control');
+
+
+    if (formClass) {
+      for (let i = 0; i < formClass.length; i++) {
+        formClass[i].classList.add("dark");
+      }
+    }
+
   }
 
 /**
