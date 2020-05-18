@@ -24,7 +24,7 @@ workbox.googleAnalytics.initialize();
 
 // CODELAB: Update cache names any time any of the cached files change.
 
-const CACHE_NAME = 'excalc-alpha-0.85';
+const CACHE_NAME = 'excalc-alpha-0.88';
 
 
 // CODELAB: Add list of files to cache here.
@@ -36,6 +36,8 @@ const FILES_TO_CACHE = [
   '/styles/inline.css',
   '/images/add.svg',
   '/images/install.svg',
+  '/images/sun.svg',
+  '/images/moon.svg',
   '/images/favicon.ico',
   'https://www.googletagmanager.com/gtag/js?id=UA-58243912-8',
 ];

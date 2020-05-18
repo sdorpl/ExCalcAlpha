@@ -391,10 +391,29 @@ function loadLocationList() {
 
   function lightTheme() {
     console.log("Jasna skórka");
+
+    weatherApp.lightTheme.setAttribute('hidden', true);
+    weatherApp.darkTheme..removeAttribute('hidden');
+    document.body.classList.remove("dark");
+    document.querySelector('.header').classList.remove("dark");
+    document.querySelector('.weather-card').classList.remove("dark");
+
+    //Zmienne
+    var formClass = document.getElementsByClassName('form-control');
+
+
+    if (formClass) {
+      for (let i = 0; i < formClass.length; i++) {
+        formClass[i].classList.remove("dark");
+      }
+    }
   }
 
   function darkTheme() {
     console.log("Ciemna skórka");
+
+    weatherApp.darkTheme.setAttribute('hidden', true);
+    weatherApp.lightTheme.removeAttribute('hidden');
     document.body.classList.add("dark");
     document.querySelector('.header').classList.add("dark");
     document.querySelector('.weather-card').classList.add("dark");
