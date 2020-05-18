@@ -291,6 +291,9 @@ input {
     background: #303030;
   }
 
+  .weather-card.dark {
+    background: #000;
+  }
 /**
  * Media query to adjust size of content for small screens
  */

@@ -382,7 +382,8 @@ function loadLocationList() {
   function darkTheme() {
     console.log("Ciemna skórka");
     document.body.classList.add("dark");
-    document.header.classList.add("dark");
+    document.querySelector('.header').classList.add("dark");
+    document.querySelector('.weather-card').classList.add("dark");
   }
 
 /**
