@@ -24,13 +24,14 @@ workbox.googleAnalytics.initialize();
 
 // CODELAB: Update cache names any time any of the cached files change.
 
-const CACHE_NAME = 'excalc-alpha-0.95';
+const CACHE_NAME = 'excalc-alpha-0.96';
 
 
 // CODELAB: Add list of files to cache here.
 const FILES_TO_CACHE = [
   '/',
   '/index.html',
+  '/index.html?utm_source=pwa',
   '/scripts/app.js',
   '/scripts/install.js',
   '/styles/inline.css',
