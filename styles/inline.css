@@ -98,6 +98,13 @@ body {
   background: url(/images/install.svg) center center no-repeat;
 }
 
+.header #butLight {
+  background: url(/images/sun.svg) center center no-repeat;
+}
+
+.header #butDark {
+  background: url(/images/moon.svg) center center no-repeat;
+}
 
 /**
  * Icons
