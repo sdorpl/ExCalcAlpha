@@ -393,7 +393,7 @@ function loadLocationList() {
     console.log("Jasna skórka");
 
     weatherApp.lightTheme.setAttribute('hidden', true);
-    weatherApp.darkTheme..removeAttribute('hidden');
+    weatherApp.darkTheme.removeAttribute('hidden');
     document.body.classList.remove("dark");
     document.querySelector('.header').classList.remove("dark");
     document.querySelector('.weather-card').classList.remove("dark");
