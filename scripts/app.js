@@ -25,7 +25,21 @@ const weatherApp = {
   infoBox: document.getElementById('info'),
   wynikBox: document.getElementById('wynik_row'),
   kartonsBox: document.getElementById('kartony_row'),
+  darkTheme: document.getElementById('butDark'),
+  lightTheme: document.getElementById('butLight'),
 };
+/* Ciemny i jasny styl */
+
+weatherApp.darkTheme.addEventListener('click', function() {
+  /*setCookie("Theme", "dark", 3650);*/
+  darkTheme();
+});
+
+//Set light
+weatherApp.lightTheme.addEventListener('click', function() {
+  /*setCookie("Theme", "light", 3650);*/
+  lightTheme();
+});
 
 /* Obliczenia */
 
