@@ -17,6 +17,8 @@
  */
 'use strict';
 
+importScripts('https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js');
+
 const weatherApp = {
   selectedLocations: {},
   addDialogContainer: document.getElementById('addDialogContainer'),
