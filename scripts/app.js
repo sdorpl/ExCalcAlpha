@@ -17,7 +17,7 @@
  */
 'use strict';
 
-const weatherApp = {
+const exCalc = {
   selectedLocations: {},
   addDialogContainer: document.getElementById('addDialogContainer'),
   btnContainer: document.getElementById('btnContainer'),
@@ -27,29 +27,38 @@ const weatherApp = {
   kartonsBox: document.getElementById('kartony_row'),
   darkTheme: document.getElementById('butDark'),
   lightTheme: document.getElementById('butLight'),
+  theme: Cookies.get('theme').
 };
 /* Ciemny i jasny styl */
 
-weatherApp.darkTheme.addEventListener('click', function() {
+if (!exCalc.theme) {
+  Cookies.set('theme', 'light', { expires: 999999 });
+}
+
+if (exCalc.theme == "dark") {
+  Cookies.set('theme', 'dark', { expires: 999999 });
+}
+
+exCalc.darkTheme.addEventListener('click', function() {
   /*setCookie("Theme", "dark", 3650);*/
-  Cookies.set('darktheme', 'value', { expires: 999999 });
+  Cookies.set('theme', 'dark', { expires: 999999 });
   darkTheme();
 });
 
 //Set light
-weatherApp.lightTheme.addEventListener('click', function() {
+exCalc.lightTheme.addEventListener('click', function() {
   /*setCookie("Theme", "light", 3650);*/
-  Cookies.set('lighttheme', 'value', { expires: 999999 });
+  Cookies.set('theme', 'light', { expires: 999999 });
   lightTheme();
 });
 
 /* Obliczenia */
 
-weatherApp.mainForm.addEventListener('change', function() {
-  var inputWymiar = weatherApp.mainForm.inputWymiar.value;
-  var inputSztuk = weatherApp.mainForm.inputSztuk.value;
-  var inputSpeed = weatherApp.mainForm.inputSpeed.value;
-  var inputPoIle = weatherApp.mainForm.inputPoIle.value;
+exCalc.mainForm.addEventListener('change', function() {
+  var inputWymiar = exCalc.mainForm.inputWymiar.value;
+  var inputSztuk = exCalc.mainForm.inputSztuk.value;
+  var inputSpeed = exCalc.mainForm.inputSpeed.value;
+  var inputPoIle = exCalc.mainForm.inputPoIle.value;
   licz(inputWymiar, inputSztuk, inputSpeed, inputPoIle);
 });
 
@@ -94,38 +103,38 @@ function licz(wymiar, sztuk, speed, poile) {
   //Jezeli wymiar i speed null
   if (!wymiar && !speed && !sztuk) {
     console.log("CHOWAM BATONIK BO PUSTO W FORMULARZU I CHUJ");
-    weatherApp.btnContainer.classList.add('hidden');
-    weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
+    exCalc.btnContainer.classList.add('hidden');
+    exCalc.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
   } else {
-    weatherApp.btnContainer.classList.remove('hidden');
+    exCalc.btnContainer.classList.remove('hidden');
     console.log("POKAZUJE BATONIK KURWA JEGO MAĆ");
-    weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+    exCalc.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
     if (isNaN(czasArray[0]) || isNaN(kartons)) {
-      weatherApp.wynikBox.setAttribute('hidden', true);
-      weatherApp.infoBox.removeAttribute('hidden');
-      weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+      exCalc.wynikBox.setAttribute('hidden', true);
+      exCalc.infoBox.removeAttribute('hidden');
+      exCalc.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
     } else {
-      weatherApp.infoBox.removeAttribute('hidden');
-      weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+      exCalc.infoBox.removeAttribute('hidden');
+      exCalc.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
 
       if (wynikCzas != 0 && wynikCzas != Infinity) {
-        weatherApp.infoBox.setAttribute('hidden', true);
-        weatherApp.wynikBox.removeAttribute('hidden');
+        exCalc.infoBox.setAttribute('hidden', true);
+        exCalc.wynikBox.removeAttribute('hidden');
         wynikValue.innerHTML = "Szacowany czas realizacji: <strong>" + wynikCzas + "</strong>";
       } else {
-        weatherApp.wynikBox.setAttribute('hidden', true);
-        weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+        exCalc.wynikBox.setAttribute('hidden', true);
+        exCalc.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
       }
 
       if (wynikKartons != 0 && wynikKartons != Infinity) {
-        weatherApp.btnContainer.classList.remove('hidden');
-        weatherApp.infoBox.setAttribute('hidden', true);
-        weatherApp.kartonsBox.removeAttribute('hidden');
+        exCalc.btnContainer.classList.remove('hidden');
+        exCalc.infoBox.setAttribute('hidden', true);
+        exCalc.kartonsBox.removeAttribute('hidden');
         kartonsValue.innerHTML = "Ilość kartonów do zrobienia: : <strong>" + wynikKartons + "</strong>";
       } else {
-        weatherApp.btnContainer.classList.add('hidden');
-        weatherApp.kartonsBox.setAttribute('hidden', true);
-        weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
+        exCalc.btnContainer.classList.add('hidden');
+        exCalc.kartonsBox.setAttribute('hidden', true);
+        exCalc.infoBox.innerHTML = "<strong>Uwaga!</strong> Dane w formularzu niekompletne! Wypełnij pola oznaczone gwiazdką.";
       }
 
     }
@@ -144,12 +153,12 @@ function licz(wymiar, sztuk, speed, poile) {
  */
 
 function cleanMainForm() {
-  weatherApp.mainForm.reset();
-  weatherApp.btnContainer.classList.add('hidden');
-  weatherApp.wynikBox.setAttribute('hidden', true);
-  weatherApp.kartonsBox.setAttribute('hidden', true);
-  weatherApp.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
-  weatherApp.infoBox.removeAttribute('hidden');
+  exCalc.mainForm.reset();
+  exCalc.btnContainer.classList.add('hidden');
+  exCalc.wynikBox.setAttribute('hidden', true);
+  exCalc.kartonsBox.setAttribute('hidden', true);
+  exCalc.infoBox.innerHTML = "<strong>Uwaga!</strong> Wprowadź dane do formularza aby obliczyć czas realizacji zamówienia i ilość kartonów!";
+  exCalc.infoBox.removeAttribute('hidden');
 }
 
 /**
@@ -170,8 +179,8 @@ function addLocation() {
     renderForecast(card, forecast);
   });
   // Save the updated list of selected cities.
-  weatherApp.selectedLocations[geo] = location;
-  saveLocationList(weatherApp.selectedLocations);
+  exCalc.selectedLocations[geo] = location;
+  saveLocationList(exCalc.selectedLocations);
 }
 
 /**
@@ -182,9 +191,9 @@ function addLocation() {
 function removeLocation(evt) {
   const parent = evt.srcElement.parentElement;
   parent.remove();
-  if (weatherApp.selectedLocations[parent.id]) {
-    delete weatherApp.selectedLocations[parent.id];
-    saveLocationList(weatherApp.selectedLocations);
+  if (exCalc.selectedLocations[parent.id]) {
+    delete exCalc.selectedLocations[parent.id];
+    saveLocationList(exCalc.selectedLocations);
   }
 }
 
@@ -338,8 +347,8 @@ function getForecastCard(location) {
 
  /* do skasowania
 function updateData() {
-  Object.keys(weatherApp.selectedLocations).forEach((key) => {
-    const location = weatherApp.selectedLocations[key];
+  Object.keys(exCalc.selectedLocations).forEach((key) => {
+    const location = exCalc.selectedLocations[key];
     const card = getForecastCard(location);
     // CODELAB: Add code to call getForecastFromCache.
 getForecastFromCache(location.geo)
@@ -394,8 +403,8 @@ function loadLocationList() {
   function lightTheme() {
     console.log("Jasna skórka");
 
-    weatherApp.lightTheme.setAttribute('hidden', true);
-    weatherApp.darkTheme.removeAttribute('hidden');
+    exCalc.lightTheme.setAttribute('hidden', true);
+    exCalc.darkTheme.removeAttribute('hidden');
     document.body.classList.remove("dark");
     document.querySelector('.header').classList.remove("dark");
     document.querySelector('.weather-card').classList.remove("dark");
@@ -414,8 +423,8 @@ function loadLocationList() {
   function darkTheme() {
     console.log("Ciemna skórka");
 
-    weatherApp.darkTheme.setAttribute('hidden', true);
-    weatherApp.lightTheme.removeAttribute('hidden');
+    exCalc.darkTheme.setAttribute('hidden', true);
+    exCalc.lightTheme.removeAttribute('hidden');
     document.body.classList.add("dark");
     document.querySelector('.header').classList.add("dark");
     document.querySelector('.weather-card').classList.add("dark");
@@ -439,7 +448,7 @@ function loadLocationList() {
 
 function init() {
   // Get the location list, and update the UI.
-  weatherApp.selectedLocations = loadLocationList();
+  exCalc.selectedLocations = loadLocationList();
   /*updateData();*/
 
   // Set up the event handlers for all of the buttons.
