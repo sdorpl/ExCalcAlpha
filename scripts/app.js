@@ -33,10 +33,12 @@ const exCalc = {
 
 if (!exCalc.theme) {
   Cookies.set('theme', 'light', { expires: 999999 });
+  lightTheme();
 }
 
 if (exCalc.theme == "dark") {
   Cookies.set('theme', 'dark', { expires: 999999 });
+  darkTheme();
 }
 
 exCalc.darkTheme.addEventListener('click', function() {
