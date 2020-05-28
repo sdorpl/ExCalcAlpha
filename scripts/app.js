@@ -32,12 +32,14 @@ const weatherApp = {
 
 weatherApp.darkTheme.addEventListener('click', function() {
   /*setCookie("Theme", "dark", 3650);*/
+  Cookies.set('darktheme', 'value', { expires: 999999 });
   darkTheme();
 });
 
 //Set light
 weatherApp.lightTheme.addEventListener('click', function() {
   /*setCookie("Theme", "light", 3650);*/
+  Cookies.set('lighttheme', 'value', { expires: 999999 });
   lightTheme();
 });
 
