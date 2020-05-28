@@ -27,30 +27,25 @@ const exCalc = {
   kartonsBox: document.getElementById('kartony_row'),
   darkTheme: document.getElementById('butDark'),
   lightTheme: document.getElementById('butLight'),
-  theme: Cookies.get('theme').
+  theme: Cookies.get('theme'),
 };
 /* Ciemny i jasny styl */
 
 if (!exCalc.theme) {
-  Cookies.set('theme', 'light', { expires: 999999 });
   lightTheme();
 }
 
 if (exCalc.theme == "dark") {
-  Cookies.set('theme', 'dark', { expires: 999999 });
   darkTheme();
 }
 
 exCalc.darkTheme.addEventListener('click', function() {
   /*setCookie("Theme", "dark", 3650);*/
-  Cookies.set('theme', 'dark', { expires: 999999 });
   darkTheme();
 });
 
 //Set light
 exCalc.lightTheme.addEventListener('click', function() {
-  /*setCookie("Theme", "light", 3650);*/
-  Cookies.set('theme', 'light', { expires: 999999 });
   lightTheme();
 });
 
@@ -404,7 +399,7 @@ function loadLocationList() {
 
   function lightTheme() {
     console.log("Jasna skórka");
-
+    Cookies.set('theme', 'light', { expires: 999999 });
     exCalc.lightTheme.setAttribute('hidden', true);
     exCalc.darkTheme.removeAttribute('hidden');
     document.body.classList.remove("dark");
@@ -424,7 +419,7 @@ function loadLocationList() {
 
   function darkTheme() {
     console.log("Ciemna skórka");
-
+    Cookies.set('theme', 'dark', { expires: 999999 });
     exCalc.darkTheme.setAttribute('hidden', true);
     exCalc.lightTheme.removeAttribute('hidden');
     document.body.classList.add("dark");
