@@ -1,30 +1,30 @@
 {
-  "name": "Extruder Calc Alpha",
-  "short_name": "ExCalc Alpha",
+  "name": "Extruder Calc",
+  "short_name": "ExCalc",
 
   "icons": [
     {
-	  "src":"/images/icons/ico-alpha.png?v=1.1",
+	  "src":"/images/icons/ico-main.png?v=1.2",
 	  "sizes":"192x192"
 	},
 	{
-	  "src":"/images/icons/ico-alpha-large.png?v=1.1",
+	  "src":"/images/icons/ico-main-large.png?v=1.2",
 	  "sizes":"512x512"
 	},
     {
-      "src": "/images/icons/ico-alpha-maskable-large.png?v=1.1",
+      "src": "/images/icons/ico-main-maskable-large.png?v=1.2",
       "sizes": "512x512",
 	  "purpose":"maskable"
     },
     {
-      "src": "/images/icons/ico-alpha-maskable.png?v=1.1",
+      "src": "/images/icons/ico-main-maskable.png?v=1.2",
       "sizes": "192x192",
 	  "purpose":"maskable"
     }
   ],
 
-  "start_url": "/index.html?utm_source=pwa",
+  "start_url": "/?utm_source=pwa",
   "display": "standalone",
-  "background_color": "#7A221C",
+  "background_color": "#ffffff",
   "theme_color": "#790005"
 }
